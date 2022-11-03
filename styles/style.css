@@ -199,7 +199,7 @@ input:focus {
 
 /* Hero =================================================================== */
 #hero {
-    padding: 1rem 0 9rem 0;
+    padding: 1rem 0 3rem 0;
 }
 
 #hero h1 {
@@ -222,9 +222,19 @@ input:focus {
 }
 
 /* Link Shortner */
-#link-shortner {
-    padding: 2rem 0;
+#link-shortener {
+    position: relative;
+    padding: 0 0 2rem 0;
     background: var(--clr-gray);
+}
+
+.top-background {
+    position: absolute;
+    top: -80px;
+    left: 0;
+    width: 100%;
+    padding: 5rem;
+    background-color: var(--clr-white);
 }
 
 .link-shortener-container {
@@ -233,7 +243,6 @@ input:focus {
     align-items: center;
     gap: 2rem;
     padding: 3rem;
-    margin-top: -7.50%;
     border-radius: 0.5rem;
     background: url(../assets/images/bg-shorten-desktop.svg) no-repeat top center;
     background-size: cover;
@@ -250,6 +259,10 @@ input:focus {
     width: 100%;
     padding: 1rem 0.5rem;
     border-radius: 0.5rem;
+}
+
+#link-shortener .result-list {
+    padding: 0;
 }
 
 .list-item {
@@ -415,7 +428,8 @@ input:focus {
     }
 
     #hero .lead,
-    #statistics .lead {
+    #statistics .lead,
+    .subscribe-btn {
         width: 100%;
     }
 
@@ -432,7 +446,7 @@ input:focus {
     }
 
     #hero {
-        padding-top: 1rem;
+        padding: 1rem 0;
     }
 
     #hero .section-holder {
