@@ -2,12 +2,12 @@ const shortenerForm = document.querySelector('#link-shortener-form');
 const linkInput = document.querySelector('.link-input');
 
 // Fires function on input submit
-shortenerForm.addEventListener('submit', (e)=> {
+shortenerForm.addEventListener('submit', (e) => {
     e.preventDefault();
     fetchAPI();
 });
 
-// Connects to SHRTCO API => https://shrtco.de/
+// Connects to SHRTCODE API => https://shrtco.de/
 async function fetchAPI() {
     try {
         const serviceUrl = 'https://api.shrtco.de/v2/shorten?url=';
@@ -42,7 +42,7 @@ function createLink(longLink, shortLink) {
     newLink.appendChild(link);
     newLink.appendChild(copyBtn);
 
-    listItem.classList.add('list-item'); 
+    listItem.classList.add('list-item', 'animate__animated', 'animate__slideInUp', 'animate__faster'); 
     newLink.classList.add('new-link-container');
     link.classList.add('new-link');
     copyBtn.classList.add('copy-btn');
@@ -54,10 +54,15 @@ function createLink(longLink, shortLink) {
     link.setAttribute('href', `${link.innerHTML}`);
     link.setAttribute('target', '_blank');
 
-    copyBtn.addEventListener('click', ()=> {
+    copyBtn.addEventListener('click', () => {
         navigator.clipboard.writeText(`${link.innerHTML}`).then(()=> {
             copyBtn.innerHTML = 'Copied!';
             copyBtn.style.background = 'hsl(257, 27%, 26%)';
         })
     });
 }
+
+// Animate.css speed control
+window.addEventListener('load', () => {
+    document.documentElement.style.setProperty('--animate-duration', '.9s');
+})
