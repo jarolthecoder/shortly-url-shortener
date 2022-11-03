@@ -90,8 +90,13 @@ input:focus {
     color: var(--clr-dark-violet);
 }
 
-#main-footer .nav-link:hover {
+#main-footer .nav-link:hover,
+.new-link {
     color: var(--clr-cyan);
+}
+
+.new-link:hover {
+    color: var(--clr-dark-cyan);
 }
 
 .hero-btn .hero-btn-link,
@@ -102,7 +107,8 @@ input:focus {
 
 #hero h1,
 #statistics h2,
-.card h4 {
+.card h4,
+.list-item span  {
     color: var(--clr-dark-blue);
 }
 
@@ -122,12 +128,15 @@ input:focus {
 
 /* Font weight */
 .nav-container .nav-item .nav-link,
-#main-header .login-link {
+#main-header .login-link,
+.list-item span,
+.new-link {
     font-weight: var(--fw-bold);
 }
 
 /* Buttons */
-.btn {
+.btn,
+.copy-btn {
     padding: 0.5rem 1.7rem;
     color: var(--clr-white);
     background: var(--clr-cyan);
@@ -135,7 +144,8 @@ input:focus {
     cursor: pointer;
 }
 
-.btn:hover {
+.btn:hover,
+.copy-btn:hover {
     background: var(--clr-dark-cyan);
     transition: background ease 0.2s;
 }
@@ -144,7 +154,9 @@ input:focus {
 #main-header .section-holder,
 #main-header .section-holder .col-left,
 #nav-bar .nav-container,
-#hero .section-holder {
+#hero .section-holder,
+.list-item,
+.new-link-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -199,7 +211,7 @@ input:focus {
 
 /* Hero =================================================================== */
 #hero {
-    padding: 1rem 0 3rem 0;
+    padding: 1rem 0 8rem 0;
 }
 
 #hero h1 {
@@ -266,12 +278,19 @@ input:focus {
 }
 
 .list-item {
-    padding: 1rem;
+    padding: 1rem 3rem;
     border-radius: 0.5rem;
     background-color: var(--clr-white);
     margin: 2rem 0;
 }
 
+.new-link-container {
+    gap: 2rem;
+}
+
+.new-link-container .copy-btn {
+    border-radius: 0.5rem;
+}
 /* Statistics =================================================================== */
 #statistics {
     padding: 5rem 0;
@@ -421,7 +440,8 @@ input:focus {
         overflow-x: hidden;
     }
 
-    .section-holder {
+    .section-holder,
+    #link-shortener .result-list {
         max-width: 100%;
         padding-left: 1rem;
         padding-right: 1rem;
@@ -429,14 +449,19 @@ input:focus {
 
     #hero .lead,
     #statistics .lead,
-    .subscribe-btn {
+    .subscribe-btn,
+    .list-item span,
+    .new-link-container,
+    .copy-btn {
         width: 100%;
     }
 
 
     #statistics .card-container,
     #main-footer .footer-navigation,
-    #main-footer .subscribe-form  {
+    #main-footer .subscribe-form,
+    .list-item,
+    .new-link-container  {
         flex-direction: column;
     }
 
@@ -446,7 +471,7 @@ input:focus {
     }
 
     #hero {
-        padding: 1rem 0;
+        padding: 1rem 0 10rem;
     }
 
     #hero .section-holder {
@@ -476,6 +501,25 @@ input:focus {
         width: 95%;
         margin-top: -25%;
         gap: 1rem;
+    }
+
+
+    .list-item,
+    .new-link-container  {
+        align-items: flex-start;
+    }
+
+    .list-item {
+        padding: 0;
+    }
+
+    .list-item span,
+    .new-link-container  {
+        padding: 1.5rem;
+    }
+
+    .list-item span {
+        border-bottom: 1px solid var(--clr-gray);
     }
 
     #statistics .card-container {
