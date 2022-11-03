@@ -1,6 +1,12 @@
 const shortenerForm = document.querySelector('#link-shortener-form');
 const linkInput = document.querySelector('.link-input');
 
+// Fires function on input submit
+shortenerForm.addEventListener('submit', (e)=> {
+    e.preventDefault();
+    fetchAPI();
+});
+
 // Connects to SHRTCO API => https://shrtco.de/
 async function fetchAPI() {
     try {
@@ -55,9 +61,3 @@ function createLink(longLink, shortLink) {
         })
     });
 }
-
-// Fires function on input submit
-shortenerForm.addEventListener('submit', (e)=> {
-    e.preventDefault();
-    fetchAPI();
-})
