@@ -432,8 +432,8 @@ input:focus {
     :root {
         --fs-regular: 1.1rem;
         --fs-medium: 1.3rem;
-        --fs-large: 2rem;
-        --fs-xlarge: 3rem;
+        --fs-large: 1.7rem;
+        --fs-xlarge: 2.5rem;
     }
 
     main {
@@ -559,6 +559,14 @@ input:focus {
 
     .card:nth-child(3) {
         margin-top: 0rem;
+    }
+
+    #cta .btn {
+        margin-top: 0.5rem;
+    }
+
+    #cta {
+        padding: 4rem 1.5rem;
     }
 
     #main-footer {
