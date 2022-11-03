@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+	<title>Shortly - URL Shortener</title>
+	<link rel="stylesheet" href="./styles/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+	<!-- Top Header - Navigation -->
+	<header id="main-header">
+		<div class="section-holder">
+			<div class="col-left">
+				<figure class="logo-container">
+					<img src="./assets/images/logo.svg" alt="" class="logo-header">
+				</figure>
+				<nav id="nav-bar">
+					<ul class="nav-container">
+						<li class="nav-item">
+							<a href="" class="nav-link">Features</a>
+						</li>
+						<li class="nav-item">
+							<a href="" class="nav-link">Pricing</a>
+						</li>
+						<li class="nav-item">
+							<a href="" class="nav-link">Resources</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+			<div class="col-right btn-container">
+				<a href="" class="login-link">Login</a>
+				<button class="btn sign-up-btn">Sign Up</button>
+			</div>
+		</div>
+	</header>
+
+	<!-- Page Content -->
+	<main id="main-page-content">
+		<!-- Hero -->
+		<section id="hero">
+			<div class="section-holder">
+				<div class="col-left">
+					<h1>More than just shorter links</h1>
+					<p class="lead">
+						Build your brand’s recognition and get detailed insights on how your links are performing.
+					</p>
+					<button class="btn hero-btn">
+						<a href="#link-shortner" class="hero-btn-link">Get Started</a>
+					</button>
+				</div>
+				<div class="col-right">
+					<figure class="img-container">
+						<img src="./assets/images/link-3d.png" alt="" class="section-img">
+					</figure>
+				</div>
+			</div>
+		</section>
+		<!-- Link Shortner -->
+		<section id="link-shortener">
+			<form id="link-shortener-form" class="link-shortener-container section-holder animate__animated animate__slideInUp animate__fast">
+				<input type="text" class="link-input" placeholder="Shorten a link here...">
+				<button class="btn form-btn">Shorten It!</button>
+			</form>
+			<ul class="result-list section-holder">
+				<!-- Links -->
+			</ul>
+		</section>
+		<!-- Statistics -->
+		<section id="statistics">
+			<div class="section-holder">
+				<header>
+					<h2>Advanced Statistics</h2>
+					<p class="lead">
+						Track how your links are performing across the web with our advanced statistics dashboard.
+					</p>
+				</header>
+				<div class="card-container">
+					<div class="card"rst-card data-aos="fade-up" data-aos-duration="400">
+						<figure class="icon-container">
+							<img src="./assets/images/icon-brand-recognition.svg" alt="" class="icon">
+						</figure>
+						<h4>Brand Recognition</h4>
+						<p class="card-content">
+							Boost your brand recognition with each click. Generic links don’t 
+  							mean a thing. Branded links help instil confidence in your content.
+						</p>
+					</div>
+					<div class="card" data-aos="fade-up" data-aos-duration="400" data-delay="100">
+						<figure class="icon-container">
+							<img src="./assets/images/icon-detailed-records.svg" alt="" class="icon">
+						</figure>
+						<h4>Detailed Records</h4>
+						<p class="card-content">
+							Gain insights into who is clicking your links. Knowing when and where 
+							people engage with your content helps inform better decisions.
+						</p>
+					</div>
+					<div class="card" data-aos="fade-up" data-aos-duration="400" data-delay="200">
+						<figure class="icon-container">
+							<img src="./assets/images/icon-fully-customizable.svg" alt="" class="icon">
+						</figure>
+						<h4>Fully Customizable</h4>
+						<p class="card-content">
+							Improve brand awareness and content discoverability through customizable 
+  							links, supercharging audience engagement.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Call To Action -->
+		<section id="cta">
+			<h2>Boost your links today!</h2>
+			<button class="btn">Get Started</button>
+		</section>
+	</main>
+
+	<!-- Page Footer -->
+	<footer id="main-footer">
+		<div class="section-holder">
+			<div class="col-left">
+				<figure class="logo-container">
+					<img src="./assets/images/logo.svg" alt="" class="logo">
+				</figure>
+				<figure class="social-icons-container">
+					<img src="./assets/images/icon-facebook.svg" alt="" class="social-icon">
+					<img src="./assets/images/icon-twitter.svg" alt="" class="social-icon">
+					<img src="./assets/images/icon-pinterest.svg" alt="" class="social-icon">
+					<img src="./assets/images/icon-instagram.svg" alt="" class="social-icon">
+				</figure>
+			</div>
+			<div class="col-middle">
+				<nav class="footer-navigation">
+					<div class="link-col">
+						<h4>Features</h4>
+						<ul class="footer-nav-container">
+							<li class="nav-item">
+								<a href="" class="nav-link">Link Shortening</a>
+							</li>
+							<li class="nav-item">
+								<a href="" class="nav-link">Branded Links</a>
+							</li>
+							<li class="nav-item">
+								<a href="" class="nav-link">Analytics</a>
+							</li>
+						</ul>
+					</div>
+					<div class="link-col">
+						<h4>Resources</h4>
+						<ul class="footer-nav-container">
+							<li class="nav-item">
+								<a href="" class="nav-link">Blog</a>
+							</li>
+							<li class="nav-item">
+								<a href="" class="nav-link">Developers</a>
+							</li>
+							<li class="nav-item">
+								<a href="" class="nav-link">Support</a>
+							</li>
+						</ul>
+					</div>
+					<div class="link-col">
+						<h4>Company</h4>
+						<ul class="footer-nav-container">
+							<li class="nav-item">
+								<a href="" class="nav-link">About</a>
+							</li>
+							<li class="nav-item">
+								<a href="" class="nav-link">Our Team</a>
+							</li>
+							<li class="nav-item">
+								<a href="" class="nav-link">Careers</a>
+							</li>
+							<li class="nav-item">
+								<a href="" class="nav-link">Contact</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+			<div class="col-right">
+				<h4>Subscribe to out Newsletter</h4>
+				<form action="" class="subscribe-form">
+					<input type="text" class="subscribe-input" placeholder="Email">
+					<button class="btn subscribe-btn">Send</button>
+				</form>
+			</div>
+		</div>
+	</footer>
+	
+	<!-- JS Scripts -->
+	<script src="./scripts/app.js"></script>
+	<script src="https://kit.fontawesome.com/69a0798591.js" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script> AOS.init();</script>
+</body>
+</html>
