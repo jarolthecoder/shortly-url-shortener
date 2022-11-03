@@ -12,9 +12,7 @@ async function fetchAPI() {
 
         const data = await response.json();
         const {short_link, original_link} = data.result
-        console.log(data);
-        console.log('Short Link: ' + short_link);
-        console.log('Original Link: ' + original_link);
+
         createLink(original_link, short_link);
     }
     catch (error) {
@@ -63,22 +61,3 @@ shortenerForm.addEventListener('submit', (e)=> {
     e.preventDefault();
     fetchAPI();
 })
-
-// function fetchAPI() {
-//     const serviceUrl = 'https://api.shrtco.de/v2/shorten?url=';
-//     const longLink = linkInput.value;
-    
-//     fetch(`${serviceUrl}${longLink}`)
-//         .then(resp => {
-//             if (!resp.ok) {
-//                 throw new Error(`HTTP error: ${response.status}`);
-//             }
-//             resp.json()
-//         })
-//         .then(data => console.log(data))
-//         .catch(error => {
-//             error = 'Link not valid';
-//             console.log(error);
-//         })
-    
-// }
