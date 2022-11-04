@@ -471,8 +471,7 @@ input:focus {
     }
 
     .section-holder,
-    #link-shortener-form,
-    #link-shortener .result-list {
+    #link-shortener-form {
         max-width: 100%;
         padding-left: 1.5rem;
         padding-right: 1.5rem;
@@ -527,7 +526,8 @@ input:focus {
         flex-direction: column;
     }
 
-    #link-shortener-form {
+    #link-shortener-form,
+    .result-list {
         width: 95%;
     }
 
