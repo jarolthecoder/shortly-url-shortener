@@ -72,7 +72,7 @@ button {
 }
 
 input:focus {
-    outline: solid var(--clr-cyan) 3px ;
+    outline: solid var(--clr-cyan) 3px;
 }
 
 /* Global Styles =================================================================== */
@@ -184,11 +184,19 @@ input:focus {
 
 /* Section container */
 .section-holder {
-    width: 100%;
     max-width: 1250px;
     margin: auto;
     padding-left: 2rem;
     padding-right: 2rem;
+}
+
+/* Width */
+.section-holder,
+.top-background,
+.link-shortener-container label,
+.link-shortener-container #link-input,
+.link-shortener-container .form-btn {
+    width: 100%;
 }
 
 /* Top Header - Navigation =================================================================== */
@@ -244,33 +252,51 @@ input:focus {
     position: absolute;
     top: -80px;
     left: 0;
-    width: 100%;
     padding: 5rem;
     background-color: var(--clr-white);
 }
 
-.link-shortener-container {
-    display: grid;
-    grid-template-columns: 5fr 1fr;
-    align-items: center;
-    gap: 2rem;
+#link-shortener-form {
+    position: relative;
     padding: 3rem;
     border-radius: 0.5rem;
     background: url(../assets/images/bg-shorten-desktop.svg) no-repeat top center;
     background-size: cover;
     background-color: var(--clr-dark-violet);
+    z-index: 1;
 }
 
-.link-shortener-container .link-input {
-    width: 100%;
+.link-shortener-container {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.link-shortener-container #link-input {
     padding: 1rem;
     border-radius: 0.5rem;
 }
 
 .link-shortener-container .form-btn {
-    width: 100%;
     padding: 1rem 0.5rem;
     border-radius: 0.5rem;
+}
+
+.not-valid,
+.not-valid:focus {
+    outline: solid var(--clr-red) 3px;
+}
+
+.not-valid::placeholder {
+    color: var(--clr-red);
+}
+
+.error-msg {
+    display: none;
+    margin-top: 1rem;
+    color: var(--clr-red);
+    font-style: italic;
 }
 
 #link-shortener .result-list {
@@ -291,6 +317,7 @@ input:focus {
 .new-link-container .copy-btn {
     border-radius: 0.5rem;
 }
+
 /* Statistics =================================================================== */
 #statistics {
     padding: 5rem 0;
@@ -456,7 +483,6 @@ input:focus {
         width: 100%;
     }
 
-
     #statistics .card-container,
     #main-footer .footer-navigation,
     #main-footer .subscribe-form,
@@ -471,7 +497,7 @@ input:focus {
     }
 
     #hero {
-        padding: 1rem 0 10rem;
+        padding: 1rem 0 5rem;
     }
 
     #hero .section-holder {
@@ -497,12 +523,17 @@ input:focus {
         flex-direction: column;
     }
 
-    .link-shortener-container {
+    #link-shortener-form {
         width: 95%;
-        margin-top: -25%;
+    }
+
+    .link-shortener-container {
         gap: 1rem;
     }
 
+    .top-background {
+        top: -40px;
+    }
 
     .list-item,
     .new-link-container  {

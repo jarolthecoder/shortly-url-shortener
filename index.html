@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="description" content="Build your brand’s recognition and get detailed insights on how your links are performing with Shortly.">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 	<title>Shortly - URL Shortener</title>
@@ -15,7 +16,7 @@
 		<div class="section-holder">
 			<div class="col-left">
 				<figure class="logo-container">
-					<img src="./assets/images/logo.svg" alt="" class="logo-header">
+					<img src="./assets/images/logo.svg" alt="Shorly link hero image" class="logo-header">
 				</figure>
 				<nav id="nav-bar">
 					<ul class="nav-container">
@@ -62,10 +63,16 @@
 		<!-- Link Shortner -->
 		<section id="link-shortener">
 			<div class="top-background"></div>
-			<form id="link-shortener-form" class="link-shortener-container section-holder animate__animated animate__slideInUp animate__fast">
-				<input type="text" class="link-input" placeholder="Shorten a link here...">
-				<button class="btn form-btn">Shorten It!</button>
-			</form>
+				<form id="link-shortener-form" class="section-holder animate__animated animate__slideInUp animate__fast">
+					<div class="link-shortener-container">
+						<label for="link-input">
+							<input type="text" id="link-input" placeholder="Shorten a link here..." autocomplete="off">
+							<p class="error-msg">Please add a link</p>
+						</label>
+						<button class="btn form-btn">Shorten It!</button>
+					</div>
+				</form>
+			</div>
 			<ul class="result-list section-holder">
 				<!-- Links -->
 			</ul>
@@ -82,7 +89,7 @@
 				<div class="card-container">
 					<div class="card"rst-card data-aos="fade-up" data-aos-duration="400">
 						<figure class="icon-container">
-							<img src="./assets/images/icon-brand-recognition.svg" alt="" class="icon">
+							<img src="./assets/images/icon-brand-recognition.svg" alt="Brand Recognition icon" class="icon">
 						</figure>
 						<h4>Brand Recognition</h4>
 						<p class="card-content">
@@ -92,7 +99,7 @@
 					</div>
 					<div class="card" data-aos="fade-up" data-aos-duration="400" data-delay="100">
 						<figure class="icon-container">
-							<img src="./assets/images/icon-detailed-records.svg" alt="" class="icon">
+							<img src="./assets/images/icon-detailed-records.svg" alt="Detailed Records icon" class="icon">
 						</figure>
 						<h4>Detailed Records</h4>
 						<p class="card-content">
@@ -102,7 +109,7 @@
 					</div>
 					<div class="card" data-aos="fade-up" data-aos-duration="400" data-delay="200">
 						<figure class="icon-container">
-							<img src="./assets/images/icon-fully-customizable.svg" alt="" class="icon">
+							<img src="./assets/images/icon-fully-customizable.svg" alt="Fully Customizable icon" class="icon">
 						</figure>
 						<h4>Fully Customizable</h4>
 						<p class="card-content">

@@ -1,18 +1,28 @@
 const shortenerForm = document.querySelector('#link-shortener-form');
-const linkInput = document.querySelector('.link-input');
+const linkInput = document.querySelector('#link-input');
+const errorMsg = document.querySelector('.error-msg');
 
-// Fires function on input submit
+// Fires function on input submit if valid
 shortenerForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    fetchAPI();
+
+    if(linkInput.value.length > 1) {
+        fetchAPI();
+        linkInput.classList.remove('not-valid');
+        errorMsg.style.display = 'none';
+    } else {
+        linkInput.classList.add('not-valid');
+        errorMsg.style.display = 'block';
+        errorMsg.innerHTML = 'Please add a link';
+    }
 });
 
 // Connects to SHRTCODE API => https://shrtco.de/
 async function fetchAPI() {
     try {
+        const userInput = linkInput.value;
         const serviceUrl = 'https://api.shrtco.de/v2/shorten?url=';
-        const longLink = linkInput.value;
-        const response = await fetch(`${serviceUrl}${longLink}`);
+        const response = await fetch(`${serviceUrl}${userInput}`);
 
         if(!response.ok) throw new Error(`HTTP error: ${response.error_code}`);
 
@@ -22,8 +32,9 @@ async function fetchAPI() {
         createLink(original_link, short_link);
     }
     catch (error) {
-        error = 'Link not valid';
-        console.log(error);
+        linkInput.classList.add('not-valid');
+        errorMsg.style.display = 'block';
+        errorMsg.innerHTML = 'This is not a valid link!';
     }
 }
 
@@ -58,11 +69,11 @@ function createLink(longLink, shortLink) {
         navigator.clipboard.writeText(`${link.innerHTML}`).then(()=> {
             copyBtn.innerHTML = 'Copied!';
             copyBtn.style.background = 'hsl(257, 27%, 26%)';
-        })
+        });
     });
 }
 
 // Animate.css speed control
 window.addEventListener('load', () => {
     document.documentElement.style.setProperty('--animate-duration', '.9s');
-})
+});
