@@ -572,11 +572,11 @@ input:focus {
     .card-container .card:nth-child(3):before {
         content: '';
         top: -5rem;
-        right: 47.3%;
+        right: 47%;
         transform: translateX(-50%);
         position: absolute;
         width: 10px;
-        height: 3.2rem;
+        height: 3.40rem;
         background: var(--clr-cyan);
     }
 
