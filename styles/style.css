@@ -67,12 +67,14 @@ img {
 
 input,
 button {
-    border: none;
+    border: 2px solid #ffff0000;
     font: inherit;
 }
 
 input:focus {
-    outline: solid var(--clr-cyan) 3px;
+    border-color: var(--clr-cyan);
+    box-shadow: 0 0 0 2px var(--clr-cyan);
+    outline: none;
 }
 
 /* Global Styles =================================================================== */
@@ -270,7 +272,7 @@ input:focus {
     display: grid;
     grid-template-columns: 5fr 1fr;
     align-items: flex-start;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .link-shortener-container #link-input {
@@ -285,7 +287,8 @@ input:focus {
 
 .not-valid,
 .not-valid:focus {
-    outline: solid var(--clr-red) 3px;
+    border: 2px solid var(--clr-red);
+    box-shadow: 0 0 0 2px var(--clr-red);
 }
 
 .not-valid::placeholder {
@@ -468,10 +471,11 @@ input:focus {
     }
 
     .section-holder,
+    #link-shortener-form,
     #link-shortener .result-list {
         max-width: 100%;
-        padding-left: 1rem;
-        padding-right: 1rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
     }
 
     #hero .lead,
@@ -525,10 +529,6 @@ input:focus {
 
     #link-shortener-form {
         width: 95%;
-    }
-
-    .link-shortener-container {
-        gap: 1rem;
     }
 
     .top-background {

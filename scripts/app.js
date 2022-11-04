@@ -1,6 +1,7 @@
 const shortenerForm = document.querySelector('#link-shortener-form');
 const linkInput = document.querySelector('#link-input');
 const errorMsg = document.querySelector('.error-msg');
+let listStorage = [];
 
 // Fires function on input submit if valid
 shortenerForm.addEventListener('submit', (e) => {
@@ -20,7 +21,7 @@ shortenerForm.addEventListener('submit', (e) => {
 // Connects to SHRTCODE API => https://shrtco.de/
 async function fetchAPI() {
     try {
-        const userInput = linkInput.value;
+        const userInput = linkInput.value.trim().toLowerCase();
         const serviceUrl = 'https://api.shrtco.de/v2/shorten?url=';
         const response = await fetch(`${serviceUrl}${userInput}`);
 
@@ -29,7 +30,8 @@ async function fetchAPI() {
         const data = await response.json();
         const {short_link, original_link} = data.result
 
-        createLink(original_link, short_link);
+        console.log(data);
+        generateLink(original_link, short_link);
     }
     catch (error) {
         linkInput.classList.add('not-valid');
@@ -39,19 +41,21 @@ async function fetchAPI() {
 }
 
 // Creates container and generates new shortened link
-function createLink(longLink, shortLink) {
+function generateLink(longLink, shortLink) {
     const resultList = document.querySelector('.result-list');
     const listItem = document.createElement('li');
     const oldLink = document.createElement('span');
     const newLink = document.createElement('p');
     const link = document.createElement('a');
     const copyBtn = document.createElement('button');
+    // const deleteBtn = document.createElement('span');
 
     resultList.appendChild(listItem);
     listItem.appendChild(oldLink);
     listItem.appendChild(newLink);
     newLink.appendChild(link);
     newLink.appendChild(copyBtn);
+    // newLink.appendChild(deleteBtn);
 
     listItem.classList.add('list-item', 'animate__animated', 'animate__slideInUp', 'animate__faster'); 
     newLink.classList.add('new-link-container');
@@ -61,9 +65,14 @@ function createLink(longLink, shortLink) {
     oldLink.innerHTML = longLink;
     link.innerHTML = `https://${shortLink}`;
     copyBtn.innerHTML = 'Copy';
+    // deleteBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
 
+    // listItem.setAttribute('link-id', `${id}`);
     link.setAttribute('href', `${link.innerHTML}`);
     link.setAttribute('target', '_blank');
+
+    // listStorage.push({link_code: id});
+    // console.log(listStorage);
 
     copyBtn.addEventListener('click', () => {
         navigator.clipboard.writeText(`${link.innerHTML}`).then(()=> {
@@ -71,6 +80,11 @@ function createLink(longLink, shortLink) {
             copyBtn.style.background = 'hsl(257, 27%, 26%)';
         });
     });
+
+    // deleteBtn.addEventListener('click', (index)=> {
+    //     listStorage.splice(index, 1);
+    //     console.log(listStorage);
+    // });
 }
 
 // Animate.css speed control
