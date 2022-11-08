@@ -8,6 +8,7 @@
     --clr-cyan: hsl(180, 66%, 49%);
     --clr-dark-cyan: hsl(180, 67%, 40%);
     --clr-red: hsl(0, 87%, 67%);
+    --clr-green: hsl(121, 53%, 64%);
     --clr-gray: hsl(236, 57%, 95%);
     --clr-grayish-violet: hsl(257, 7%, 63%);
     --clr-dark-violet: hsl(257, 27%, 26%);
@@ -114,6 +115,15 @@ input:focus {
     color: var(--clr-dark-blue);
 }
 
+.error-msg,
+.email-error-msg {
+    color: var(--clr-red);
+}
+.email-success-msg {
+    color: var(--clr-green);
+}
+
+
 /* Font size */
 #hero h1 {
     font-size: var(--fs-xlarge);
@@ -152,13 +162,23 @@ input:focus {
     transition: background ease 0.2s;
 }
 
+.delete-btn {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    opacity: 1;
+    transition: opacity ease 0.2s;
+}
+
 /* Display Flex */
 #main-header .section-holder,
 #main-header .section-holder .col-left,
 #nav-bar .nav-container,
 #hero .section-holder,
 .list-item,
-.new-link-container {
+.list-item-col {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -295,10 +315,16 @@ input:focus {
     color: var(--clr-red);
 }
 
-.error-msg {
+.error-msg,
+.email-error-msg {
     display: none;
     margin-top: 1rem;
-    color: var(--clr-red);
+    font-style: italic;
+}
+
+.email-success-msg {
+    display: none;
+    margin-top: 1rem;
     font-style: italic;
 }
 
@@ -313,7 +339,7 @@ input:focus {
     margin: 2rem 0;
 }
 
-.new-link-container {
+.list-item-col {
     gap: 2rem;
 }
 
@@ -480,7 +506,6 @@ input:focus {
     #hero .lead,
     #statistics .lead,
     .subscribe-btn,
-    .list-item span,
     .new-link-container,
     .copy-btn {
         width: 100%;
@@ -492,6 +517,24 @@ input:focus {
     .list-item,
     .new-link-container  {
         flex-direction: column;
+    }
+
+    .old-link-container {
+        width: 100%;
+        flex-direction: row-reverse;
+    }
+
+    .old-link-container span:nth-child(2) {
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        flex-grow: 2;
+    }
+
+    .delete-btn {
+        width: 20%;
+        text-align: end;
     }
 
     #main-header .section-holder .col-right,
