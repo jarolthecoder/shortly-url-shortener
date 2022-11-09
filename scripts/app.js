@@ -7,15 +7,15 @@ let listStorage = [];
 // Fires function on input submit if valid
 shortenerForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const userInput = linkInput.value.trim().toLowerCase();
 
-    if(linkInput.value.length > 1 && !listStorage.some(item => item.link === userInput)) {
-        listStorage.push({link: linkInput.value});
+    if(linkInput.value.length > 1 && !listStorage.some(item => item.link === linkInput.value)) {
         fetchAPI();
+        listStorage.push({ link: linkInput.value });
         linkInput.classList.remove('not-valid');
         errorMsg.style.display = 'none';
+        console.log(listStorage);
     
-    } else if (listStorage.some(item => item.link === userInput)) {
+    } else if(listStorage.some(item => item.link === linkInput.value)) {
         linkInput.classList.add('not-valid');
         errorMsg.style.display = 'block';
         errorMsg.innerHTML = 'Shortlink was already generated';
@@ -38,7 +38,7 @@ async function fetchAPI() {
 
         const data = await response.json();
         const {short_link, original_link} = data.result;
-
+        
         generateLink(original_link, short_link);
     }
     catch (error) {
@@ -47,6 +47,7 @@ async function fetchAPI() {
         errorMsg.innerHTML = 'This is not a valid link!';
     }
 }
+
 
 // Creates dynamic list item for each new shortened link
 function generateLink(longLink, shortLink) {
@@ -78,7 +79,7 @@ function generateLink(longLink, shortLink) {
     newLink.innerHTML = `https://${shortLink}`;
     copyBtn.innerHTML = 'Copy';
     deleteBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
-
+   
     newLink.setAttribute('href', `${newLink.innerHTML}`);
     newLink.setAttribute('target', '_blank');
 
@@ -91,13 +92,14 @@ function generateLink(longLink, shortLink) {
     });
 
     // Deletes item from list and from array
-    deleteBtn.addEventListener('click', (event)=> {
+    deleteBtn.addEventListener('click', (event) => {
         let btn = event.target;
         btn.closest('li').remove();
         listStorage.splice(event.target, 1);
         return listStorage
     });
 }
+
 
 // Animate.css speed control
 window.addEventListener('load', () => {
@@ -113,7 +115,7 @@ const emailValidationChar = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
 
 subscribeForm.addEventListener('submit', (e)=> {
     e.preventDefault();
-    if(emailInput.value.length < 1 || !emailInput.value === emailValidationChar) {
+    if(emailInput.value.length < 1 || !emailInput.value.match(emailValidationChar)) {
         emailErrorMsg.style.display = 'block';
         emailErrorMsg.innerHTML = 'Please enter a valid email';
         emailInput.classList.add('not-valid');
@@ -125,4 +127,4 @@ subscribeForm.addEventListener('submit', (e)=> {
         emailSuccessMsg.innerHTML = 'Thanks for subscribe!';
         emailErrorMsg.style.display = 'none';
     }
-})
+});

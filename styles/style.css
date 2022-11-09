@@ -483,7 +483,7 @@ input:focus {
 }
 
 /* Responsive Adjust =================================================================== */
-/* Small Screen */
+/* Small Screen - Mobile */
 @media screen and (max-width: 750px) {
     :root {
         --fs-regular: 1.1rem;
@@ -661,4 +661,40 @@ input:focus {
     #main-footer .col-right {
         padding-left: 0;
     }
+}
+
+/* Medium Screen - Tablet*/
+@media screen and (min-width: 751px) and (max-width: 1250px) {
+    #link-shortener-form {
+        width: 95%;
+        margin: auto;
+    }
+    
+    #main-footer {
+        text-align: center;
+    }
+
+    #main-footer .logo {
+        margin: auto;
+    }
+
+    #main-footer .section-holder {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    #main-footer .footer-navigation {
+        padding: 3rem 0;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    #main-footer .col-right {
+        padding-left: 0;
+    }
+    
 }
