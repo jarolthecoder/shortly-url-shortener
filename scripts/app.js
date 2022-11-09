@@ -6,16 +6,17 @@ let listStorage = [];
 
 // Fires function on input submit if valid
 shortenerForm.addEventListener('submit', (e) => {
+    const userInput = linkInput.value.trim().toLowerCase();
     e.preventDefault();
 
-    if(linkInput.value.length > 1 && !listStorage.some(item => item.link === linkInput.value)) {
-        fetchAPI();
-        listStorage.push({ link: linkInput.value });
+    if(userInput.length > 1 && !listStorage.some(item => item.link === userInput)) {
+        fetchAPI(userInput);
+        listStorage.push({ link: userInput });
         linkInput.classList.remove('not-valid');
         errorMsg.style.display = 'none';
         console.log(listStorage);
     
-    } else if(listStorage.some(item => item.link === linkInput.value)) {
+    } else if(listStorage.some(item => item.link === userInput)) {
         linkInput.classList.add('not-valid');
         errorMsg.style.display = 'block';
         errorMsg.innerHTML = 'Shortlink was already generated';
@@ -28,11 +29,11 @@ shortenerForm.addEventListener('submit', (e) => {
 });
 
 // Connects to SHRTCODE API => https://shrtco.de/
-async function fetchAPI() {
+async function fetchAPI(input) {
     try {
-        const userInput = linkInput.value.trim().toLowerCase();
+        
         const serviceUrl = 'https://api.shrtco.de/v2/shorten?url=';
-        const response = await fetch(`${serviceUrl}${userInput}`);
+        const response = await fetch(`${serviceUrl}${input}`);
 
         if(!response.ok) throw new Error(`HTTP error: ${response.error_code}`);
 
@@ -96,6 +97,7 @@ function generateLink(longLink, shortLink) {
         let btn = event.target;
         btn.closest('li').remove();
         listStorage.splice(event.target, 1);
+        console.log('Item delted: ' + JSON.stringify(listStorage));
         return listStorage
     });
 }
